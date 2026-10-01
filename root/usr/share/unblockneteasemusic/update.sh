@@ -16,7 +16,7 @@ clean_log(){
 
 check_core_latest_version() {
 	exec 200>"$LOCK"
-	if ! flock -n 200 &> /dev/null; then
+	if ! flock -n 200 >/dev/null 2>&1; then
 		echo -e "\nA task is already running." >> "$LOG"
 		exit 2
 	fi
